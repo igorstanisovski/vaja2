@@ -9,6 +9,8 @@ public class Artikel implements Searchable{
     private String _name;
     private String _drzava;
     private BigDecimal _price;
+    private long _EAN;
+    private BigDecimal _kolicina;
 
     public void setDrzava(String _drzava) {
         this._drzava = _drzava;
@@ -18,14 +20,14 @@ public class Artikel implements Searchable{
         return _drzava;
     }
 
-    private long _EAN;
-    private BigDecimal _kolicina;
+
 
     protected final BigDecimal _davcnaStopnja=new BigDecimal("0.22");
 
     @Override
     public Boolean search(String s) {
-        if(_name == s)
+        if(_name == s || _drzava==s || _price.toString() == s || Long.toString(_EAN) == s || _kolicina.toString()==s
+        || _davcnaStopnja.toString()==s)
             return true;
         else return false;
 

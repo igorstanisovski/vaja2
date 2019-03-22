@@ -1,4 +1,6 @@
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -13,7 +15,10 @@ public class Racun extends Artikel implements Searchable{
 
     @Override
     public Boolean search(String s) {
-        if(_izdajatelj == s)
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String strDate = dateFormat.format(_datum);
+        if(_izdajatelj == s || Integer.toString(_RacunID)==s || Long.toString(_UnikatnaStevilkaRacuna)==s
+        || Long.toString(_DavcnaStevilkaPodjetja)==s || strDate ==s)
             return true;
         else return false;
     }

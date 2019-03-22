@@ -7,7 +7,7 @@ public class Podjetje implements Searchable{
 
     @Override
     public Boolean search(String s) {
-        if(_ime == s)
+        if(_ime == s || Long.toString(_davcnaStevilka) == s || Long.toString(_maticnaStevilka)==s)
             return true;
             else return false;
     }

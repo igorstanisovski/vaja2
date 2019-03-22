@@ -32,48 +32,48 @@ public class Main {
         p3.setIme("podjetje3");
         p3.setDavcnaStevilka(12321367);
 
-        a1.setName("abc");
+        a1.setName("Banana");
         a1.setPrice(new BigDecimal("10.00"));
         a1.setKolicina(new BigDecimal("2"));
         a1.setDrzava("Makedonija");
 
-        a2.setName("ab");
+        a2.setName("Krompir");
         a2.setPrice(new BigDecimal("144.77"));
         a2.setKolicina(new BigDecimal("3.4"));
         a2.setDrzava("Slovenija");
 
-        a3.setName("abcd");
+        a3.setName("Mleko");
         a3.setPrice(new BigDecimal("8.22"));
         a3.setKolicina(new BigDecimal("3"));
         a3.setDrzava("Spanija");
 
 
-        a4.setName("abca");
+        a4.setName("Sir");
         a4.setPrice(new BigDecimal("10.20"));
         a4.setKolicina(new BigDecimal("10"));
         a4.setDrzava("Makedonija");
 
-        a5.setName("aaaa");
+        a5.setName("Sampon");
         a5.setPrice(new BigDecimal("2.8"));
         a5.setKolicina(new BigDecimal("10"));
         a5.setDrzava("Francija");
 
-        a6.setName("abdsaca");
+        a6.setName("Orbit");
         a6.setPrice(new BigDecimal("10"));
         a6.setKolicina(new BigDecimal("5.1"));
         a6.setDrzava("Makedonija");
 
-        a7.setName("cccc");
+        a7.setName("Sladkor");
         a7.setPrice(new BigDecimal("3"));
         a7.setKolicina(new BigDecimal("3"));
         a7.setDrzava("Nemčija");
 
-        a8.setName("adsadbca");
+        a8.setName("Kava");
         a8.setPrice(new BigDecimal("3.8"));
         a8.setKolicina(new BigDecimal("3.3"));
         a8.setDrzava("Hrvaska");
 
-        a9.setName("abca");
+        a9.setName("Zelje");
         a9.setPrice(new BigDecimal("1"));
         a9.setKolicina(new BigDecimal("20"));
         a9.setDrzava("ZDA");
@@ -83,12 +83,15 @@ public class Main {
         Racun1.Artikli.add(a3);
         Racun1.setIzdajatelj(p1.getIme());
         Racun1.setDSP(p1.getDavcnaStevilka());
+        Racun1.search("banana");
+
 
         Racun2.Artikli.add(a4);
         Racun2.Artikli.add(a5);
         Racun2.Artikli.add(a6);
         Racun2.setIzdajatelj(p2.getIme());
         Racun2.setDSP(p2.getDavcnaStevilka());
+        Racun2.search("podjetje2");
 
         Racun3.Artikli.add(a7);
         Racun3.Artikli.add(a8);

@@ -114,7 +114,12 @@ public class Main {
         for(int i =0;i<SeznamPodjetja.size();i++){
          System.out.println(SeznamPodjetja.get(i).toString());
         }
-
+        System.out.println(Racun1.search("banane"));
+        System.out.println(Racun2.search("podjetje2"));
+        System.out.println(a1.search("Mleko"));
+        System.out.println(a8.search("Kava"));
+        System.out.println(p1.search("podjetje1"));
+        System.out.println(p2.search("podjetje3"));
 
 
     }

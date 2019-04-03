@@ -1,3 +1,7 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.*;
@@ -5,7 +9,7 @@ import java.util.Random;
 
 
 
-public class Artikel implements Searchable{
+public class Artikel implements Searchable,JsonSupport{
     private String _name;
     private String _drzava;
     private BigDecimal _price;
@@ -33,10 +37,24 @@ public class Artikel implements Searchable{
 
     }
 
+    @Override
+    public String toJson(){
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        //JsonElement el = gson.toJson(_name);
+        return gson.toJson(_name);
+    }
+    public String fromJson(String a){
+        Gson gson = new Gson();
+        Artikel art = gson.fromJson(a, Artikel.class);
+        return art.toString();
+    }
+
     public Artikel(){
         Random rnd = new Random();
         this._EAN = 10000000 + rnd.nextInt(90000000);
     }
+
 
 
     public BigDecimal getKolicina(){

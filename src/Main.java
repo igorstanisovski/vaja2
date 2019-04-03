@@ -121,6 +121,10 @@ public class Main {
         System.out.println(p1.search("podjetje1"));
         System.out.println(p2.search("podjetje3"));
 
+     String userJson = "{'age':26,'email':'norman@futurestud.io','isDeveloper':true,'name':'Norman'}";
+     System.out.println(a1.toJson()+"\n");
+     System.out.println(a1.fromJson(userJson));
+
 
     }
 }

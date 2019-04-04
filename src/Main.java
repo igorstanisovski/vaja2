@@ -103,7 +103,7 @@ public class Main {
         Racun1.setIzdajatelj(p1.getIme());
         Racun1.setDSP(p1.getDavcnaStevilka());
         Racun1.search("banana");
-
+       // Racun1.setKupon(10081098201098);
 
         Racun2.Artikli.add(a4);
         Racun2.Artikli.add(a5);
@@ -151,5 +151,31 @@ public class Main {
       Helper h1 = new Helper();
       h1.writer(a1);
       h1.reader();
+
+      String st = new String();
+      st = "10081098101098";
+      String datum = new String();
+      datum = st.substring(2,8);
+      String godina = new String();
+      String mesec = new String();
+      String den = new String();
+      godina = datum.substring(4,6);
+      mesec = datum.substring(2,4);
+      den = datum.substring(0,2);
+      System.out.println(den + " "+ mesec + " " + godina);
+
+
+     String datum1 = new String();
+     datum1 = st.substring(8,14);
+     System.out.println(datum1);
+     String godina1 = new String();
+     String mesec1 = new String();
+     String den1 = new String();
+     godina1 = datum1.substring(4,6);
+     mesec1 = datum1.substring(2,4);
+     den1 = datum1.substring(0,2);
+     System.out.println(den1 + " "+ mesec1 + " " + godina1);
+
+
     }
 }

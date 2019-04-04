@@ -12,6 +12,7 @@ public class Racun extends Artikel implements Searchable{
     private long _DavcnaStevilkaPodjetja;
     private Date _datum;
     ArrayList<Artikel> Artikli = new ArrayList<Artikel>();
+    private String _kupon;
 
     @Override
     public Boolean search(String s) {
@@ -30,6 +31,13 @@ public class Racun extends Artikel implements Searchable{
         setUSR();
     }
 
+    public void setKupon(String a){
+        this._kupon = a;
+    }
+    public String getKupon(){
+        return this._kupon;
+    }
+
     public int getKolicinaPosamezniArtiklov(){
         return Artikli.size();
     }
@@ -38,7 +46,43 @@ public class Racun extends Artikel implements Searchable{
         for (int i = 0; i < getKolicinaPosamezniArtiklov(); i++) {
             _suma = _suma.add(Artikli.get(i).getPrice().multiply(Artikli.get(i).getKolicina()));
         }
-        return _suma;
+        String str = new String();
+        str = _kupon.substring(0,2);
+        BigDecimal suma1 = new BigDecimal("0");
+        if(str == "10" || str =="20") {
+            String datum = new String();
+            datum = _kupon.substring(2, 8);
+            String godina = new String();
+            String mesec = new String();
+            String den = new String();
+            godina = datum.substring(4, 6);
+            mesec = datum.substring(2, 4);
+            den = datum.substring(0, 2);
+
+            String datum1 = new String();
+            datum1 = _kupon.substring(8, 14);
+            System.out.println(datum1);
+            String godina1 = new String();
+            String mesec1 = new String();
+            String den1 = new String();
+            godina1 = datum1.substring(4, 6);
+            mesec1 = datum1.substring(2, 4);
+            den1 = datum1.substring(0, 2);
+
+            Date date = new GregorianCalendar(Integer.parseInt(godina), Integer.parseInt(mesec), Integer.parseInt(den)).getTime();
+            Date date1 = new GregorianCalendar(Integer.parseInt(godina1), Integer.parseInt(mesec1), Integer.parseInt(den1)).getTime();
+            BigDecimal kuponche = new BigDecimal("1");
+
+            if (_datum.after(date1) || _datum.before(date)) {
+                suma1 = new BigDecimal("0");
+            } else {
+                String sh = new String();
+                sh = _kupon.substring(0, 2);
+                kuponche = new BigDecimal(sh);
+                suma1 = _suma.divide(kuponche);
+            }
+        }
+        return _suma.subtract(suma1);
     }
     public String getIzdajatelj(){
 

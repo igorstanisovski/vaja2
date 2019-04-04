@@ -34,49 +34,59 @@ public class Main {
 
         a1.setName("Banana");
         a1.setPrice(new BigDecimal("10.00"));
-        a1.setKolicina(new BigDecimal("2"));
+        a1.setKolicina(new BigDecimal("20"));
         a1.setDrzava("Makedonija");
+        a1.setOddelekS(222);
 
         a2.setName("Krompir");
         a2.setPrice(new BigDecimal("144.77"));
-        a2.setKolicina(new BigDecimal("3.4"));
+        a2.setKolicina(new BigDecimal("30"));
         a2.setDrzava("Slovenija");
+        a2.setOddelekS(100);
 
         a3.setName("Mleko");
         a3.setPrice(new BigDecimal("8.22"));
-        a3.setKolicina(new BigDecimal("3"));
+        a3.setKolicina(new BigDecimal("300"));
         a3.setDrzava("Spanija");
+        a3.setOddelekS(953);
 
 
         a4.setName("Sir");
         a4.setPrice(new BigDecimal("10.20"));
-        a4.setKolicina(new BigDecimal("10"));
+        a4.setKolicina(new BigDecimal("1000"));
         a4.setDrzava("Makedonija");
+        a4.setOddelekS(342);
 
         a5.setName("Sampon");
         a5.setPrice(new BigDecimal("2.8"));
-        a5.setKolicina(new BigDecimal("10"));
+        a5.setKolicina(new BigDecimal("245"));
         a5.setDrzava("Francija");
+        a5.setOddelekS(336);
 
         a6.setName("Orbit");
         a6.setPrice(new BigDecimal("10"));
-        a6.setKolicina(new BigDecimal("5.1"));
+        a6.setKolicina(new BigDecimal("458"));
         a6.setDrzava("Makedonija");
+        a6.setOddelekS(452);
 
         a7.setName("Sladkor");
         a7.setPrice(new BigDecimal("3"));
-        a7.setKolicina(new BigDecimal("3"));
+        a7.setKolicina(new BigDecimal("7000"));
         a7.setDrzava("Nemčija");
+        a7.setOddelekS(222);
 
         a8.setName("Kava");
         a8.setPrice(new BigDecimal("3.8"));
-        a8.setKolicina(new BigDecimal("3.3"));
+        a8.setKolicina(new BigDecimal("458"));
         a8.setDrzava("Hrvaska");
+        a8.setOddelekS(265);
+
 
         a9.setName("Zelje");
         a9.setPrice(new BigDecimal("1"));
-        a9.setKolicina(new BigDecimal("20"));
+        a9.setKolicina(new BigDecimal("151"));
         a9.setDrzava("ZDA");
+        a9.setOddelekS(270);
 
         Racun1.Artikli.add(a1);
         Racun1.Artikli.add(a2);
@@ -121,10 +131,16 @@ public class Main {
         System.out.println(p1.search("podjetje1"));
         System.out.println(p2.search("podjetje3"));
 
-     String userJson = "{'age':26,'email':'norman@futurestud.io','isDeveloper':true,'name':'Norman'}";
-     System.out.println(a1.toJson()+"\n");
-     System.out.println(a1.fromJson(userJson));
-
-
+//     String userJson = "{'_name':'aaa','_drzava': 'bbb','_price':123,'_EAN':231321, '_kol':111}";
+//
+//
+//     String a = a1.toJson();
+//
+//     System.out.println(a+"\n");
+//
+//     System.out.println(a1.fromJson(userJson));
+      Helper h1 = new Helper();
+      h1.writer(a1);
+      h1.reader();
     }
 }

@@ -77,6 +77,15 @@ public class Artikel implements Searchable,JsonSupport{
         String o = String.valueOf(getOddelekS());
         String id = String.valueOf(this._ID);
         String teza = String.valueOf(getKolicina());
+        if(teza.length() == 3){
+            teza = "0" + teza;
+        }
+        else if(teza.length()==2){
+            teza = "00" + teza;
+        }
+        else if (teza.length() == 1){
+            teza = "000" + teza;
+        }
         String ss = o + id + teza;
         int a = makeCheckDigit(ss);
         String checkdigit = String.valueOf(a);
@@ -93,51 +102,48 @@ public class Artikel implements Searchable,JsonSupport{
         return _kolicina;
     }
 
-//    public Boolean checkDigit(String b){
-//
-//
-//
-//
-//        long last = a%10;
-//        long suma = 0;
-//        a = a/10;
-//        int poz = 7;
-//        while(a > 0){
-//            long number = a%10;
-//            if(poz % 2 == 0){
-//                long digit = number * 1;
-//                suma = suma + digit;
-//            }
-//            else{
-//                long digit = number * 3;
-//                suma = suma + digit;
-//            }
-//            a = a/10;
-//            poz--;
-//        }
-//        long b = suma%10;
-//        long checkeddigit;
-//        if(b>0){
-//            checkeddigit = 10-b;
-//        }
-//        else
-//            checkeddigit = 0;
-//
-//        if(checkeddigit == last){
-//            return true;
-//        }
-//        else return false;
-//    }
+    public Boolean checkDigit(String st){
+        long a = Long.parseLong(st);
+        long last = a%10;
+        long suma = 0;
+        a = a/10;
+        int poz = st.length()-1;
+        while(a > 0){
+            long number = a%10;
+            if(poz % 2 == 0){
+                long digit = number * 1;
+                suma = suma + digit;
+            }
+            else{
+                long digit = number * 3;
+                suma = suma + digit;
+            }
+            a = a/10;
+            poz--;
+        }
+        long b = suma%10;
+        long checkeddigit;
+        if(b>0){
+            checkeddigit = 10-b;
+        }
+        else
+            checkeddigit = 0;
+
+        if(checkeddigit == last){
+            return true;
+        }
+        else return false;
+    }
 
     public int makeCheckDigit(String e){
-        int a = Integer.parseInt(e);
+        long a = Long.parseLong(e);
         //int i = 0;
-        ArrayList<Integer> stevila = new ArrayList<>();
+        ArrayList<Long> stevila = new ArrayList<>();
         while(a > 0){
             stevila.add(a%10);
             a = a/10;
         }
-        int suma = 0;
+        long suma = 0;
         for(int i=0;i<stevila.size();i++){
             if(i%2==0){
                 suma = suma + stevila.get(i)*3;
@@ -146,14 +152,16 @@ public class Artikel implements Searchable,JsonSupport{
                 suma = suma + stevila.get(i)*1;
             }
         }
-        int b = suma%10;
-        int checkeddigit;
+        long b = suma%10;
+        long checkeddigit;
         if(b>0){
             checkeddigit = 10-b;
         }
         else
             checkeddigit = 0;
-        return checkeddigit;
+
+        int bb = (int)checkeddigit;
+        return bb;
     }
 
     public void setKolicina(BigDecimal kol){

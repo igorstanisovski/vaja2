@@ -37,18 +37,21 @@ public class Main {
         a1.setKolicina(new BigDecimal("20"));
         a1.setDrzava("Makedonija");
         a1.setOddelekS(222);
+        a1.setEAN();
 
         a2.setName("Krompir");
         a2.setPrice(new BigDecimal("144.77"));
         a2.setKolicina(new BigDecimal("30"));
         a2.setDrzava("Slovenija");
         a2.setOddelekS(100);
+        a2.setEAN();
 
         a3.setName("Mleko");
         a3.setPrice(new BigDecimal("8.22"));
         a3.setKolicina(new BigDecimal("300"));
         a3.setDrzava("Spanija");
         a3.setOddelekS(953);
+        a3.setEAN();
 
 
         a4.setName("Sir");
@@ -56,37 +59,43 @@ public class Main {
         a4.setKolicina(new BigDecimal("1000"));
         a4.setDrzava("Makedonija");
         a4.setOddelekS(342);
+        a4.setEAN();
 
         a5.setName("Sampon");
         a5.setPrice(new BigDecimal("2.8"));
         a5.setKolicina(new BigDecimal("245"));
         a5.setDrzava("Francija");
         a5.setOddelekS(336);
+        a5.setEAN();
 
         a6.setName("Orbit");
         a6.setPrice(new BigDecimal("10"));
         a6.setKolicina(new BigDecimal("458"));
         a6.setDrzava("Makedonija");
         a6.setOddelekS(452);
+        a6.setEAN();
 
         a7.setName("Sladkor");
         a7.setPrice(new BigDecimal("3"));
         a7.setKolicina(new BigDecimal("7000"));
         a7.setDrzava("Nemčija");
         a7.setOddelekS(222);
+        a7.setEAN();
 
         a8.setName("Kava");
         a8.setPrice(new BigDecimal("3.8"));
         a8.setKolicina(new BigDecimal("458"));
         a8.setDrzava("Hrvaska");
         a8.setOddelekS(265);
-
+        a8.setEAN();
 
         a9.setName("Zelje");
         a9.setPrice(new BigDecimal("1"));
         a9.setKolicina(new BigDecimal("151"));
         a9.setDrzava("ZDA");
         a9.setOddelekS(270);
+        a9.setEAN();
+        //a9.setEAN();
 
         Racun1.Artikli.add(a1);
         Racun1.Artikli.add(a2);

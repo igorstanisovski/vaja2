@@ -103,7 +103,7 @@ public class Main {
         Racun1.setIzdajatelj(p1.getIme());
         Racun1.setDSP(p1.getDavcnaStevilka());
         Racun1.search("banana");
-       // Racun1.setKupon(10081098201098);
+        Racun1.setKupon("100810199820101998");
 
         Racun2.Artikli.add(a4);
         Racun2.Artikli.add(a5);
@@ -111,12 +111,13 @@ public class Main {
         Racun2.setIzdajatelj(p2.getIme());
         Racun2.setDSP(p2.getDavcnaStevilka());
         Racun2.search("podjetje2");
-
+        Racun2.setKupon("100401201905012019");
         Racun3.Artikli.add(a7);
         Racun3.Artikli.add(a8);
         Racun3.Artikli.add(a9);
         Racun3.setIzdajatelj(p3.getIme());
         Racun3.setDSP(p3.getDavcnaStevilka());
+        Racun3.setKupon("200401201905012019");
 
         Seznam.add(Racun1);
         Seznam.add(Racun2);
@@ -140,42 +141,26 @@ public class Main {
         System.out.println(p1.search("podjetje1"));
         System.out.println(p2.search("podjetje3"));
 
-//     String userJson = "{'_name':'aaa','_drzava': 'bbb','_price':123,'_EAN':231321, '_kol':111}";
-//
-//
-//     String a = a1.toJson();
-//
-//     System.out.println(a+"\n");
-//
-//     System.out.println(a1.fromJson(userJson));
-      Helper h1 = new Helper();
-      h1.writer(a1);
-      h1.reader();
+     String userJson = "{'_name':'aaa','_drzava': 'bbb','_price':123,'_EAN':231321, '_kol':111}";
 
-      String st = new String();
-      st = "10081098101098";
-      String datum = new String();
-      datum = st.substring(2,8);
-      String godina = new String();
-      String mesec = new String();
-      String den = new String();
-      godina = datum.substring(4,6);
-      mesec = datum.substring(2,4);
-      den = datum.substring(0,2);
-      System.out.println(den + " "+ mesec + " " + godina);
+     //String a = a1.toJson();
 
+     //System.out.println(a+"\n");
 
-     String datum1 = new String();
-     datum1 = st.substring(8,14);
-     System.out.println(datum1);
-     String godina1 = new String();
-     String mesec1 = new String();
-     String den1 = new String();
-     godina1 = datum1.substring(4,6);
-     mesec1 = datum1.substring(2,4);
-     den1 = datum1.substring(0,2);
-     System.out.println(den1 + " "+ mesec1 + " " + godina1);
+     //System.out.println(a1.fromJson(userJson));
+     //Helper.writer(a1);
+     //Helper.reader();
+     String fileA = new String("D:\\Artikel.json");
+     Artikli A = new Artikli();
+     A.Artikli.add(a1);
+     A.Artikli.add(a2);
+     String toSend =  A.toJson();
 
+     Helper.writer(toSend,fileA);
+     String from = Helper.reader(fileA);
+     System.out.println(from);
+
+     A.fromJson(from);
 
     }
 }

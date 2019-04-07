@@ -1,28 +1,26 @@
 import com.google.gson.Gson;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 
 public class Helper{
-    public static void writer(Artikel a){
-        Gson gson = new Gson();
-        //String json = gson.toJson(a);
-        //System.out.println(json);
-        try (FileWriter writer = new FileWriter("D:\\Artikel.json")) {
-            gson.toJson(a, writer);
+    public static void writer(String a,String filename){
+        try (FileWriter writer = new FileWriter(filename)) {
+           writer.write(a);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public static void reader(){
-        Gson gson = new Gson();
-        try (Reader reader = new FileReader("D:\\Artikel.json")) {
-            Artikel art = gson.fromJson(reader, Artikel.class);
-            System.out.println(art);
+    public static String reader(String filename){
+        String current;
+        String returnString = new String();
+        try (Reader reader = new FileReader(filename)) {
+            BufferedReader bf = new BufferedReader(reader);
+            while ((current = bf.readLine()) != null) {
+                returnString = returnString + current;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return returnString;
     }
 }

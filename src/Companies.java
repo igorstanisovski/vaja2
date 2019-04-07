@@ -9,14 +9,16 @@ public class Companies extends Podjetje implements JsonSupport{
     public String toJson(){
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
+         return gson.toJson(this);
         //JsonElement el = gson.toJson(_name);
-        return gson.toJson(this.P.toString());
+        //return gson.toJson(this.P.toString());
     }
     @Override
-    public Companies fromJson(String st){
+    public void fromJson(String st){
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         Companies cp = gson.fromJson(st,Companies.class);
-        return cp;
+        P = cp.P;
+        //return cp;
     }
 }

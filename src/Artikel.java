@@ -11,7 +11,7 @@ import java.util.Random;
 
 
 
-public class Artikel implements Searchable,JsonSupport{
+public class Artikel implements Searchable{
     private String _name;
     private String _drzava;
     private BigDecimal _price;
@@ -45,21 +45,6 @@ public class Artikel implements Searchable,JsonSupport{
             return true;
         else return false;
 
-    }
-
-    @Override
-    public String toJson(){
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        //JsonElement el = gson.toJson(_name);
-        return gson.toJson(this._name + this._drzava + this._price + this._EAN + this._kolicina);
-    }
-    @Override
-    public Artikel fromJson(String st){
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        Artikel art = gson.fromJson(st,Artikel.class);
-        return art;
     }
 
     public Artikel(){

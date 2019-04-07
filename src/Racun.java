@@ -10,16 +10,16 @@ public class Racun extends Artikel implements Searchable{
     private String _izdajatelj;
     private long _UnikatnaStevilkaRacuna;
     private long _DavcnaStevilkaPodjetja;
-    private Date _datum;
+    private LocalDate _datum;
     ArrayList<Artikel> Artikli = new ArrayList<Artikel>();
     private String _kupon;
 
     @Override
     public Boolean search(String s) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        String strDate = dateFormat.format(_datum);
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+//        String strDate = dateFormat.format(_datum);
         if(_izdajatelj == s || Integer.toString(_RacunID)==s || Long.toString(_UnikatnaStevilkaRacuna)==s
-        || Long.toString(_DavcnaStevilkaPodjetja)==s || strDate ==s)
+       || Long.toString(_DavcnaStevilkaPodjetja)==s /*|| strDate ==s*/)
             return true;
         else return false;
     }
@@ -27,7 +27,7 @@ public class Racun extends Artikel implements Searchable{
     public Racun() {
         _ID++;
         this._RacunID = _ID;
-        _datum = new Date();
+        _datum = LocalDate.now();
         setUSR();
     }
 
@@ -51,35 +51,45 @@ public class Racun extends Artikel implements Searchable{
         BigDecimal suma1 = new BigDecimal("0");
         if(str == "10" || str =="20") {
             String datum = new String();
-            datum = _kupon.substring(2, 8);
+            datum = _kupon.substring(2, 10);
             String godina = new String();
             String mesec = new String();
             String den = new String();
-            godina = datum.substring(4, 6);
+            godina = datum.substring(4, 8);
             mesec = datum.substring(2, 4);
             den = datum.substring(0, 2);
 
             String datum1 = new String();
-            datum1 = _kupon.substring(8, 14);
-            System.out.println(datum1);
+            datum1 = _kupon.substring(10, 18);
+            //System.out.println(datum1);
             String godina1 = new String();
             String mesec1 = new String();
             String den1 = new String();
-            godina1 = datum1.substring(4, 6);
+            godina1 = datum1.substring(4, 8);
             mesec1 = datum1.substring(2, 4);
             den1 = datum1.substring(0, 2);
+            //SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy",Locale.ENGLISH);
 
-            Date date = new GregorianCalendar(Integer.parseInt(godina), Integer.parseInt(mesec), Integer.parseInt(den)).getTime();
-            Date date1 = new GregorianCalendar(Integer.parseInt(godina1), Integer.parseInt(mesec1), Integer.parseInt(den1)).getTime();
-            BigDecimal kuponche = new BigDecimal("1");
+            LocalDate date = LocalDate.of(Integer.parseInt(godina), Integer.parseInt(mesec), Integer.parseInt(den));
+            LocalDate date1 = LocalDate.of(Integer.parseInt(godina1), Integer.parseInt(mesec1), Integer.parseInt(den1));
 
-            if (_datum.after(date1) || _datum.before(date)) {
+            //Calendar c = Calendar.getInstance();
+            //c.set(Integer.parseInt(godina), Integer.parseInt(mesec), Integer.parseInt(den));
+            //Date date = c.getTime();
+            //Calendar c1 = Calendar.getInstance();
+            //c1.set(Integer.parseInt(godina1), Integer.parseInt(mesec1), Integer.parseInt(den1));
+            //Date date1 = c1.getTime();
+            //Date date = new GregorianCalendar(Integer.parseInt(godina), Integer.parseInt(mesec), Integer.parseInt(den)).getTime();
+            //Date date1 = new GregorianCalendar(Integer.parseInt(godina1), Integer.parseInt(mesec1), Integer.parseInt(den1)).getTime();
+            BigDecimal kupon1 = new BigDecimal("0");
+
+            if (this._datum.isAfter(date1) || this._datum.isBefore(date)) {
                 suma1 = new BigDecimal("0");
             } else {
                 String sh = new String();
                 sh = _kupon.substring(0, 2);
-                kuponche = new BigDecimal(sh);
-                suma1 = _suma.divide(kuponche);
+                kupon1 = new BigDecimal(sh);
+                suma1 = _suma.divide(kupon1);
             }
         }
         return _suma.subtract(suma1);
@@ -127,12 +137,14 @@ public class Racun extends Artikel implements Searchable{
         for(int i=0;i<getKolicinaPosamezniArtiklov();i++){
             ss=ss + "Artikel " + i + ": " + Artikli.get(i).getName() + "\tKolicina: " + Artikli.get(i).getKolicina() +
                     "\tCena: " + Artikli.get(i).getPrice() + "\tEAN: " + Artikli.get(i).getEAN()+
-                     "Je EAN veljaven: \t" + Artikli.get(i).checkDigit(Artikli.get(i).getEAN()) + "\nDrzava: "+ Artikli.get(i).getDrzava()+"\n" ;
+                     "Je EAN veljaven: \t" + Artikli.get(i).checkDigit(Artikli.get(i).getEAN()) + "\nDrzava: "+ Artikli.get(i).getDrzava()+
+                    "\n" ;
         }
        return "Racun id: " + _RacunID + "\nIzdajatelj:" + getIzdajatelj() + "\nJe Zavezanec: " + ss1 +
                "\nDavcna stevilka podjetja:" +  getDSP() +
                "\nDatum: " + _datum.toString() +  "\nPosamezni artikli: " + getKolicinaPosamezniArtiklov() +
-               "\nArtikli:\n" + ss + "\nSkupna Cena: " + getSkupnaCena() + "\nUnikatna stevilka racuna: " + getUSR()+"\n\n\n";
+               "\nArtikli:\n" + ss + "\nSkupna Cena: " + getSkupnaCena() + "\nUnikatna stevilka racuna: " + getUSR()+
+                "\nKupon: " + getKupon() + "\n\n\n";
     }
 
 }

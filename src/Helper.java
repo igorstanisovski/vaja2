@@ -5,7 +5,7 @@ import java.io.*;
 public class Helper{
     public static void writer(String a,String filename){
         try (FileWriter writer = new FileWriter(filename)) {
-           writer.write(a);
+        writer.write(a);
         } catch (IOException e) {
             e.printStackTrace();
         }

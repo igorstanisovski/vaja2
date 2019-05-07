@@ -1,8 +1,15 @@
+import org.apache.commons.dbcp2.BasicDataSource;
+import si.um.feri.database.DBHelper;
+
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)throws SQLException{
        ArrayList<Racun> Seznam = new ArrayList<>();
        ArrayList<Podjetje> SeznamPodjetja = new ArrayList<>();
 
@@ -161,6 +168,26 @@ public class Main {
      System.out.println(from);
 
      A.fromJson(from);
+
+//     try (BasicDataSource dataSource = DBHelper.getDataSource();
+//          Connection connection = dataSource.getConnection();
+//          PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM sakila.actor");)
+//     {
+//      System.out.println("The Connection Object is of Class: "+connection.getClass());
+//      try (ResultSet resultSet = pstmt.executeQuery();)
+//      {
+//       while (resultSet.next())
+//       {
+//        System.out.println(resultSet.getString(1) + "," + resultSet.getString(2) + "," + resultSet.getString(3));
+//       }
+//      }
+//      catch (Exception e)
+//      {
+//       connection.rollback();
+//       e.printStackTrace();
+//      }
+//     }
+     DBHelper.testConnection();
 
     }
 }

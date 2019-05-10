@@ -10,7 +10,7 @@ public class DBHelper {
     private static BasicDataSource getDataSource() {
         if (dataSource == null) {
             BasicDataSource ds = new BasicDataSource();
-            ds.setUrl("jdbc:mysql://localhost:3306/sakila");
+            ds.setUrl("jdbc:mysql://localhost:3306/sakila?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
             ds.setUsername("root");
             ds.setPassword("igor123igor");
 

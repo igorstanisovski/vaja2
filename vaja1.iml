@@ -19,5 +19,82 @@
     <orderEntry type="library" name="org.apache.commons:commons-dbcp2:2.6.0" level="project" />
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="lib (2)" level="project" />
+    <orderEntry type="library" name="lib (3)" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/poi-bin-4.1.0-20190412/poi-4.1.0/poi-examples-4.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/poi-bin-4.1.0-20190412/poi-4.1.0/poi-excelant-4.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/poi-bin-4.1.0-20190412/poi-4.1.0/poi-ooxml-4.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/poi-bin-4.1.0-20190412/poi-4.1.0/poi-ooxml-schemas-4.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/poi-bin-4.1.0-20190412/poi-4.1.0/poi-scratchpad-4.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="org.apache.poi:poi:4.1.0" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/resolver.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/xmlbeans-3.1.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/xmlbeans-3.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/Desktop/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/xmlbeans-3.1.0-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Desktop/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/xmlbeans-3.1.0-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/commons-compress-1.18-bin/commons-compress-1.18/commons-compress-1.18-tests.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/commons-compress-1.18-bin/commons-compress-1.18/commons-compress-1.18.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/Desktop/commons-compress-1.18-bin/commons-compress-1.18/commons-compress-1.18-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Desktop/commons-compress-1.18-bin/commons-compress-1.18/commons-compress-1.18-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/commons-compress-1.18-bin/commons-compress-1.18/commons-compress-1.18-test-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

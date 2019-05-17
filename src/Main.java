@@ -171,7 +171,7 @@ public class Main {
      A.fromJson(from);
 
      DBHelper.testConnection();
-     DBHelper.insert();
+     DBHelper.insertFromCsv();
      DBHelper.test();
     }
 }

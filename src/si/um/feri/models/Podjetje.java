@@ -1,12 +1,53 @@
 package si.um.feri.models;
 
+import si.um.feri.Util.Util;
+
 import java.util.Random;
+import java.util.UUID;
 
 public class Podjetje implements Searchable {
+    private static UUID uuid;
     private String _ime;
     private long _davcnaStevilka;
     private long _maticnaStevilka;
+    private String phone;
+    private String address;
+    private boolean zavezanec;
 
+    public Podjetje(UUID id, String name, String davcna,String maticna, String phone,boolean check,String address){
+        this.uuid = id;
+        this._ime = name;
+        this._davcnaStevilka = Long.parseLong(davcna);
+        this._maticnaStevilka = Long.parseLong(maticna);
+        if(davcna.length() > 1){
+            zavezanec = true;
+        }
+        else
+            zavezanec = false;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    public void setAddress(String a){
+        this.address = a;
+    }
+    public String getAddress(){
+        return this.address;
+    }
+
+    public void setPhone(String ph){
+        this.phone=ph;
+    }
+    public String getPhone(){
+        return this.phone;
+    }
+
+    public static UUID getUuid(){
+        if(uuid == null){
+            uuid = Util.binaryToUuid(Util.generateBinrayUuid());
+        }
+        return uuid;
+    }
     @Override
     public Boolean search(String s) {
         if(_ime == s || Long.toString(_davcnaStevilka) == s || Long.toString(_maticnaStevilka)==s)

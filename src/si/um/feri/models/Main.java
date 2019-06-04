@@ -1,13 +1,12 @@
-import org.apache.commons.dbcp2.BasicDataSource;
+package si.um.feri.models;
+
 import si.um.feri.database.DBHelper;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args)throws SQLException, IOException {

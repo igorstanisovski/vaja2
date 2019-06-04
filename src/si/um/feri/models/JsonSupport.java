@@ -1,4 +1,4 @@
-import com.google.gson.Gson;
+package si.um.feri.models;
 
 public interface JsonSupport {
     public String toJson();

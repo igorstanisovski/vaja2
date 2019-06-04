@@ -1,10 +1,11 @@
-import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.*;
+package si.um.feri.models;
 
-public class Racun extends Artikel implements Searchable{
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Racun extends Artikel implements Searchable {
     protected static int _ID = 0;
     private int _RacunID = 0;
     private String _izdajatelj;

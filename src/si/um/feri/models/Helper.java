@@ -1,4 +1,4 @@
-import com.google.gson.Gson;
+package si.um.feri.models;
 
 import java.io.*;
 

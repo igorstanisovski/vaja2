@@ -1,17 +1,14 @@
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
+package si.um.feri.models;
 
 import javax.swing.*;
-import java.lang.reflect.AnnotatedType;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.Random;
+import si.um.feri.Util.Util;
+import java.util.UUID;
 
-
-
-public class Artikel implements Searchable{
+public class Artikel implements Searchable {
+    private static UUID uuid;
     private String _name;
     private String _drzava;
     private BigDecimal _price;
@@ -19,6 +16,23 @@ public class Artikel implements Searchable{
     private BigDecimal _kolicina;
     private int _ID;
     private int _oddelekS;
+
+
+    public Artikel(UUID id,String name,String barcode,int stock,BigDecimal price,BigDecimal vat){
+        this.uuid = id;
+        this._name = name;
+        this._EAN = barcode;
+        this._kolicina = BigDecimal.valueOf(stock);
+        this._davcnaStopnja = vat;
+        this._price = price;
+    }
+
+    public static UUID getUuid(){
+        if(uuid == null){
+            uuid = Util.binaryToUuid(Util.generateBinrayUuid());
+        }
+        return uuid;
+    }
 
     public void setDrzava(String _drzava) {
         this._drzava = _drzava;
@@ -36,7 +50,11 @@ public class Artikel implements Searchable{
         return this._oddelekS;
     }
 
-    protected final BigDecimal _davcnaStopnja=new BigDecimal("0.22");
+    protected BigDecimal _davcnaStopnja=new BigDecimal("0.22");
+
+    public BigDecimal getVat(){
+        return  this._davcnaStopnja;
+    }
 
     @Override
     public Boolean search(String s) {

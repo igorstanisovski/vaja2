@@ -1,9 +1,11 @@
+package si.um.feri.models;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
-public class Artikli extends Artikel implements JsonSupport{
+public class Artikli extends Artikel implements JsonSupport {
     ArrayList<Artikel> Artikli = new ArrayList<>();
 
     public String toString(){
@@ -28,7 +30,7 @@ public class Artikli extends Artikel implements JsonSupport{
     public void fromJson(String st){
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-        Artikli art = gson.fromJson(st,Artikli.class);
+        Artikli art = gson.fromJson(st, Artikli.class);
         Artikli = art.Artikli;
         //return art;
     }

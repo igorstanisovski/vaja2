@@ -47,6 +47,10 @@ public class DBHelper {
         return dataSource;
     }
 
+    public static Connection getConnection() throws SQLException{
+        return dataSource.getConnection();
+    }
+
     public static void testConnection() throws SQLException {
         try (BasicDataSource dataSource = DBHelper.getDataSource();
              Connection connection = dataSource.getConnection();

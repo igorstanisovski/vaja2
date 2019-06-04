@@ -1,6 +1,8 @@
+package si.um.feri.models;
+
 import java.util.Random;
 
-public class Podjetje implements Searchable{
+public class Podjetje implements Searchable {
     private String _ime;
     private long _davcnaStevilka;
     private long _maticnaStevilka;

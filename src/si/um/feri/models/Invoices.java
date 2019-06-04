@@ -1,24 +1,27 @@
+package si.um.feri.models;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
-public class Companies extends Podjetje implements JsonSupport{
-    ArrayList<Podjetje> P = new ArrayList<Podjetje>();
+public class Invoices extends Racun implements JsonSupport {
+    ArrayList<Racun> racuni = new ArrayList<Racun>();
     @Override
     public String toJson(){
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-         return gson.toJson(this);
+        return gson.toJson(this);
         //JsonElement el = gson.toJson(_name);
-        //return gson.toJson(this.P.toString());
+        //return gson.toJson(this.Racuni.toString());
     }
     @Override
     public void fromJson(String st){
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-        Companies cp = gson.fromJson(st,Companies.class);
-        P = cp.P;
-        //return cp;
+        Invoices inv = gson.fromJson(st, Invoices.class);
+        racuni = inv.racuni;
+        //return inv;
     }
+
 }

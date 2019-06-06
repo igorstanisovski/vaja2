@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class Podjetje implements Searchable {
-    private static UUID uuid;
+    private UUID uuid;
     private String _ime;
     private long _davcnaStevilka;
     private long _maticnaStevilka;
@@ -42,11 +42,11 @@ public class Podjetje implements Searchable {
         return this.phone;
     }
 
-    public static UUID getUuid(){
-        if(uuid == null){
-            uuid = Util.binaryToUuid(Util.generateBinrayUuid());
+    public UUID getUuid(){
+        if(this.uuid == null){
+            this.uuid = Util.binaryToUuid(Util.generateBinrayUuid());
         }
-        return uuid;
+        return this.uuid;
     }
     @Override
     public Boolean search(String s) {

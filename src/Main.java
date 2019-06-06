@@ -1,6 +1,6 @@
-package si.um.feri.models;
-
-import si.um.feri.database.DBHelper;
+import si.um.feri.Dao.MySql.MySqlCompany;
+import si.um.feri.Dao.MySql.MySqlInternalArticle;
+import si.um.feri.models.*;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -30,14 +30,43 @@ public class Main {
         Podjetje p1 = new Podjetje();
         Podjetje p2 = new Podjetje();
         Podjetje p3 = new Podjetje();
+        Podjetje p4 = new Podjetje();
+        Podjetje p5 = new Podjetje();
 
         p1.setIme("podjetje1");
+        p1.setAddress("Kamniska ulica 2");
+        p1.setMaticnaStevilka();
         p1.setDavcnaStevilka(1234567);
+        p1.setPhone("070222222");
+        p1.getUuid();
 
         p2.setIme("podjetje2");
+        p2.setAddress("Kamniska ulica 4");
+        p2.setMaticnaStevilka();
+        p2.setPhone("070222333");
+        p2.getUuid();
 
         p3.setIme("podjetje3");
         p3.setDavcnaStevilka(12321367);
+        p3.setAddress("Kamniska ulica 10");
+        p3.setMaticnaStevilka();
+        p3.setPhone("070222322");
+        p3.getUuid();
+
+        p4.setIme("podjetje4");
+        p1.setDavcnaStevilka(21233213);
+        p4.setAddress("Trzaska 5");
+        p4.setMaticnaStevilka();
+        p4.setPhone("030234234");
+        p4.getUuid();
+
+        p5.setIme("podjetje5");
+        p5.setDavcnaStevilka(132123367);
+        p5.setAddress("Kamniska ulica 110");
+        p5.setMaticnaStevilka();
+        p5.setPhone("070222233");
+        p5.getUuid();
+
 
         a1.setName("Banana");
         a1.setPrice(new BigDecimal("10.00"));
@@ -104,24 +133,24 @@ public class Main {
         a9.setEAN();
         //a9.setEAN();
 
-        Racun1.Artikli.add(a1);
-        Racun1.Artikli.add(a2);
-        Racun1.Artikli.add(a3);
+//        Racun1.Artikli.add(a1);
+//        Racun1.Artikli.add(a2);
+//        Racun1.Artikli.add(a3);
         Racun1.setIzdajatelj(p1.getIme());
         Racun1.setDSP(p1.getDavcnaStevilka());
         Racun1.search("banana");
         Racun1.setKupon("100810199820101998");
 
-        Racun2.Artikli.add(a4);
-        Racun2.Artikli.add(a5);
-        Racun2.Artikli.add(a6);
+//        Racun2.Artikli.add(a4);
+//        Racun2.Artikli.add(a5);
+//        Racun2.Artikli.add(a6);
         Racun2.setIzdajatelj(p2.getIme());
         Racun2.setDSP(p2.getDavcnaStevilka());
         Racun2.search("podjetje2");
         Racun2.setKupon("100401201905012019");
-        Racun3.Artikli.add(a7);
-        Racun3.Artikli.add(a8);
-        Racun3.Artikli.add(a9);
+//        Racun3.Artikli.add(a7);
+//        Racun3.Artikli.add(a8);
+//        Racun3.Artikli.add(a9);
         Racun3.setIzdajatelj(p3.getIme());
         Racun3.setDSP(p3.getDavcnaStevilka());
         Racun3.setKupon("200401201905012019");
@@ -159,8 +188,8 @@ public class Main {
      //Helper.reader();
      String fileA = new String("D:\\Artikel.json");
      Artikli A = new Artikli();
-     A.Artikli.add(a1);
-     A.Artikli.add(a2);
+//     A.Artikli.add(a1);
+//     A.Artikli.add(a2);
      String toSend =  A.toJson();
 
      Helper.writer(toSend,fileA);
@@ -169,8 +198,64 @@ public class Main {
 
      A.fromJson(from);
 
-     DBHelper.testConnection();
-     DBHelper.insertFromCsv();
-     DBHelper.test();
+
+//     DBHelper.testConnection();
+//     DBHelper.insertFromCsv();
+//     DBHelper.test();
+     MySqlCompany CompanyInput = new MySqlCompany();
+
+     CompanyInput.insert(p1);
+     CompanyInput.insert(p2);
+     CompanyInput.insert(p3);
+     CompanyInput.insert(p4);
+     CompanyInput.insert(p5);
+
+     InternalArticle i1 = new InternalArticle();
+     InternalArticle i2 = new InternalArticle();
+     InternalArticle i3 = new InternalArticle();
+     InternalArticle i4 = new InternalArticle();
+     InternalArticle i5 = new InternalArticle();
+     i1.getUuid();
+     i1.setID("2");
+     i1.setName("interniartikel");
+     i1.setPrice(new BigDecimal("123"));
+     i1.setStock(100);
+     i1.setVat(new BigDecimal("0.22"));
+
+     i2.getUuid();
+     i2.setID("2");
+     i2.setName("interniartikel2");
+     i2.setPrice(new BigDecimal("19"));
+     i2.setStock(100);
+     i2.setVat(new BigDecimal("0.22"));
+
+     i3.getUuid();
+     i3.setID("3");
+     i3.setName("interniartikel3");
+     i3.setPrice(new BigDecimal("10"));
+     i3.setStock(10);
+     i3.setVat(new BigDecimal("0.22"));
+
+     i4.getUuid();
+     i4.setID("4");
+     i4.setName("interniartikel4");
+     i4.setPrice(new BigDecimal("10"));
+     i4.setStock(10);
+     i4.setVat(new BigDecimal("0.22"));
+
+     i5.getUuid();
+     i5.setID("5");
+     i5.setName("interniartikel5");
+     i5.setPrice(new BigDecimal("10"));
+     i5.setStock(10);
+     i5.setVat(new BigDecimal("0.22"));
+     MySqlInternalArticle InternalArticleInput = new MySqlInternalArticle();
+     InternalArticleInput.insert(i1);
+     InternalArticleInput.insert(i2);
+     InternalArticleInput.insert(i3);
+     InternalArticleInput.insert(i4);
+     InternalArticleInput.insert(i5);
+
+
     }
 }

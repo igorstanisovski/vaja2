@@ -6,7 +6,7 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 
 public class Artikli extends Artikel implements JsonSupport {
-    ArrayList<Artikel> Artikli = new ArrayList<>();
+    public ArrayList<Artikel> Artikli = new ArrayList<>();
 
     public String toString(){
         String ss = new String();

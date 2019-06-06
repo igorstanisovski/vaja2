@@ -21,7 +21,7 @@ public class MySqlCompany implements CompanyDao {
     final String SQL_GET_ALL = "SELECT * FROM "+TABLE_NAME;
     final String SQL_GET_BY_NAME = "SELECT * FROM "+TABLE_NAME+" WHERE name = ? LIMIT 1";
     final String SQL_INSERT = "INSERT INTO "+TABLE_NAME+"(company_id, name,tax_number, registration_number,phone_number," +
-            "taxpayer,address,created,modified)" + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ? , ?)";
+            "taxpayer,address,created,modified)" + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     final String SQL_DELETE = "DELETE FROM"+TABLE_NAME+ " WHERE company_id = ?";
     final String SQL_UPDATE = "UPDATE"+TABLE_NAME+" SET name = ?, tax_number = ?, registration_number = ?, phone_number = ?,"+
             " taxpayer = ?, address = ? WHERE company_id = ?";

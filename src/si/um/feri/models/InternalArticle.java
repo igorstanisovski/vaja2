@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public class InternalArticle {
-    private static UUID uuid;
+    private UUID uuid;
     private String ID;
     private String name;
     private BigDecimal price;
@@ -23,10 +23,13 @@ public class InternalArticle {
     }
 
     public UUID getUuid() {
-        if(uuid == null){
-            uuid = Util.binaryToUuid(Util.generateBinrayUuid());
+        if(this.uuid == null){
+            this.uuid = Util.binaryToUuid(Util.generateBinrayUuid());
         }
-        return uuid;
+        return this.uuid;
+    }
+    public InternalArticle(){
+
     }
 
     public String getID() {
@@ -47,10 +50,6 @@ public class InternalArticle {
 
     public int getStock() {
         return stock;
-    }
-
-    public static void setUuid(UUID uuid) {
-        InternalArticle.uuid = uuid;
     }
 
     public void setID(String ID) {

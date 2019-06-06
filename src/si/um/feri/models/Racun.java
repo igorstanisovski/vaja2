@@ -1,5 +1,5 @@
 package si.um.feri.models;
-
+import si.um.feri.models.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
